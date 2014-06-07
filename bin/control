@@ -9,7 +9,7 @@ NGINX_PID_FILE=$OPENSHIFT_NGINX_DIR/run/nginx.pid
 
 
 function start() {
-    echo "Starting Nginx"
+    echo "Starting nginx"
 
     if [ -f "$NGINX_EXEC" ]; then
 
@@ -28,7 +28,7 @@ function start() {
 
 
 function stop() {
-    echo "Starting Nginx"
+    echo "Stopping nginx"
 
     if [ -f "$NGINX_PID_FILE" ]; then
         pid=`cat "$NGINX_PID_FILE" 2> /dev/null`
@@ -39,7 +39,6 @@ function stop() {
 
 
 function restart() {
-    echo "Restarting Nginx"
     stop
     start
 }
@@ -51,16 +50,16 @@ function status() {
 
     if [ $res -eq 0 ]
     then
-        client_result "Nginx is running"
+        client_result "nginx is running"
         client_result "$output"
     else
-        client_result "Nginx is either stopped or inaccessible"
+        client_result "nginx is either stopped or inaccessible"
     fi
 }
 
 
 function reload() {
-    echo "Reloading Nginx"
+    echo "Reloading nginx"
 
     if [ -f "$NGINX_PID_FILE" ]
     then
@@ -68,7 +67,7 @@ function reload() {
         output=$("$NGINX_EXEC" -c "$NGINX_CONFIG_FILE" -p "$OPENSHIFT_NGINX_DIR" -s reload)
         client_result "$output"
     else
-        client_result "Cannot reload Nginx as it is not running"
+        client_result "Cannot reload nginx as it is not running"
     fi
 }
 
@@ -83,7 +82,7 @@ function tidy() {
 function update() {
     version=${NGINX_VERSION:-1.4.4}
 
-    echo "Rebuilding Nginx v$version"
+    echo "Rebuilding nginx v$version"
     stop
 
     mkdir -p tmp/build
