@@ -1,13 +1,13 @@
-## Openshift Nginx Cartridge
+## OpenShift nginx Cartridge
 
-A cartridge for openshift that enables Nginx to be used as the web server.
+A cartridge for OpenShift that enables nginx to be used as the web server.
 
 
 ### Installation
 
 To install this cartridge use the cartridge reflector when creating an app
 
-	rhc create-app myapp http://cartreflect-claytondev.rhcloud.com/reflect?github=gsterjov/openshift-nginx-cartridge
+	rhc create-app myapp http://cartreflect-claytondev.rhcloud.com/github/geekman/openshift-nginx-cartridge
 
 
 ### Configuration
